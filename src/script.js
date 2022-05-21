@@ -9,7 +9,8 @@ const showModal = () => {
   let mainContainer = document.createElement('div');
   mainContainer.setAttribute('id', 'motivator-container')
   mainContainer.setAttribute('class', 'container mt-3');
-  mainContainer.setAttribute('style', '450px; z-index: 9999999');
+  mainContainer.setAttribute('style', 'width:100vw;z-index: 9999999;'
+      + 'background-color:rgb(0,0,0, 0.5);margin:0;position:absolute;');
 
   let title = document.createElement('h1');
   title.setAttribute('class', 'text-center');
