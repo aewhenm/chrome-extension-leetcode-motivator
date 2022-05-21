@@ -4,19 +4,58 @@ const now = new Date();
 let saved = localStorage.getItem(DATE_KEY);
 
 const showModal = () => {
-  // TODO: show modal
   console.log('showing modal...')
+
+  let mainContainer = document.createElement('div');
+  mainContainer.setAttribute('id', 'motivator-container')
+  mainContainer.setAttribute('class', 'container mt-3');
+  mainContainer.setAttribute('style', '450px; z-index: 9999999');
+
+  let title = document.createElement('h1');
+  title.setAttribute('class', 'text-center');
+  title.innerText = 'Welcome back!';
+
+  let text = document.createElement('p');
+  text.setAttribute('class', 'text-center');
+  text.innerText = 'Keep going on, you are doing great!';
+
+  let btnContainer = document.createElement('div');
+  btnContainer.setAttribute('class', 'container');
+
+  let row = document.createElement('div');
+  row.setAttribute('class', 'row');
+
+  let wrapper = document.createElement('div');
+  wrapper.setAttribute('class', 'col text-center');
+
+  let okBtn = document.createElement('button');
+  okBtn.setAttribute('class', 'btn btn-default')
+  okBtn.innerText = 'OK';
+  okBtn.addEventListener('click', () => {
+    document.body.removeChild(mainContainer);
+  });
+  btnContainer.appendChild(row);
+  row.appendChild(wrapper);
+  wrapper.appendChild(okBtn);
+
+  mainContainer.appendChild(title);
+  mainContainer.appendChild(text);
+  mainContainer.appendChild(btnContainer);
+
+  document.body.appendChild(mainContainer)
 }
 
-if (saved) {
-  let lastVisitDate = new Date(saved);
-  if (lastVisitDate.getDate() < now.getDate()) {
-    showModal();
-  } else {
-    console.log('modal already was shown');
-  }
-} else {
-  showModal();
-}
+showModal();
 
-localStorage.setItem(DATE_KEY, now);
+// if (saved) {
+//   let lastVisitDate = new Date(saved);
+//   if (lastVisitDate.getDate() < now.getDate()) {
+//     showModal();
+//   } else {
+//     console.log('modal already was shown');
+//   }
+// } else {
+//   showModal();
+// }
+//
+// localStorage.setItem(DATE_KEY, now);
